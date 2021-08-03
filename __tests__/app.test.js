@@ -72,7 +72,7 @@ describe('fruity routes', () => {
       ripe: false,
     });
 
-    const res = request(app)
+    const res = await request(app)
       .put(`/api/v1/fruits/${fruit1.id}`)
       .send({ color: 'brown-yellow sepacle', ripe: true });
 

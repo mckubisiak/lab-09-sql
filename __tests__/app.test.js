@@ -2,7 +2,7 @@ const pool = require('../lib/utils/pool');
 const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
-const Fruit = require('../models/fruit');
+const Fruit = require('../lib/models/fruit');
 
 
 describe('fruity routes', () => {

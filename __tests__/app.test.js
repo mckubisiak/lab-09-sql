@@ -64,4 +64,23 @@ describe('fruity routes', () => {
         expect(res.body).toEqual([fruit1, fruit2, fruit3]);
       });
   });
+
+  it('Put updates a single fruit', async () => {
+    const fruit1 = await Fruit.insert({
+      name: 'banana',
+      color: 'yellow',
+      ripe: false,
+    });
+
+    const res = request(app)
+      .put(`/api/v1/fruits/${fruit1.id}`)
+      .send({ color: 'brown-yellow sepacle', ripe: true });
+
+    expect(res.body).toEqual({
+      ...fruit1,
+      color: 'brown-yellow sepacle',
+      ripe: true,
+    });
+  });
+
 });

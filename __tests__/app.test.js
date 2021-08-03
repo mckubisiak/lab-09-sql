@@ -83,4 +83,19 @@ describe('fruity routes', () => {
     });
   });
 
+  it('DELETE REMOVES a single fruit', async () => {
+    const fruit1 = await Fruit.insert({
+      name: 'banana',
+      color: 'brown-yellow sepacle',
+      ripe: true
+    });
+
+    const res = await request(app)
+      .delete(`/api/v1/fruits/${fruit1.id}`);
+
+    expect(res.body).toEqual({
+      message: `${fruit1.name} has been eaten!`
+    });
+  });
+
 });
